@@ -22,7 +22,7 @@ public class AutoClosure
 		
 		WebDriver driver=new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		WebDriverWait w=new WebDriverWait(driver,50);
+		WebDriverWait w=new WebDriverWait(driver,100);
 		driver.get("https://epatientrecords-phctest.gov.mt/");
 		
 		driver.findElement(By.linkText("OpenID")).click();
@@ -48,11 +48,11 @@ public class AutoClosure
 				break;
 			}
 		}
-		
-		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul[id='nav'] li:nth-child(7)")));
+		Thread.sleep(5000);
+		w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("ul[id='nav'] li:nth-child(7)")));
 		driver.findElement(By.cssSelector("ul[id='nav'] li:nth-child(7)")).click();
 		Thread.sleep(5000);
-		//w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div[class='col-sm-12 col-md-12'] button:nth-child(7)")));
+		w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[class='col-sm-12 col-md-12'] button:nth-child(7)")));
 		driver.findElement(By.cssSelector("div[class='col-sm-12 col-md-12'] button:nth-child(7)")).click();	
 
 		
