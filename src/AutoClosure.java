@@ -60,6 +60,7 @@ public class AutoClosure
 		je.executeScript("arguments[0].click();", settingsbtn);
 		//settingsbtn.click();
 		driver.findElement(By.xpath("//div[4]/button[6]")).click();
-		//driver.findElement(By.xpath("//div/input[@name='servicePoint']")).sendKeys("abc");		
+		//driver.findElement(By.xpath("//div/input[@name='servicePoint']")).sendKeys("abc");	
+		System.out.println("adffh");
 	}
 }
