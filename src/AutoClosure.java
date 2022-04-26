@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,10 +70,12 @@ public class AutoClosure
 		WebElement agendaDropdown=driver.findElement(By.cssSelector("div [class='input-group margin-bottom-sm col-sm-12'] select[name='agenda']"));
 		Select agenda=new Select(agendaDropdown); 	
 		agenda.selectByVisibleText("[BHPATHCN1BL2] BHC 450 BLOOD INVESTIGATIONS");
-		Thread.sleep(6000);
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector("div [class='panel-body']")).click();
+		Actions a=new Actions(driver);
+		a.sendKeys(Keys.END).build().perform();
+		Thread.sleep(2000);
 		
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,1000)");
 
 	}
 }
